@@ -408,7 +408,7 @@ serviceMonitor_daemonset:
 controller_deployment:
   # -- Type of controller to use for deploying Grafana Agent in the cluster.
   # Must be one of 'daemonset', 'deployment', or 'statefulset'.
-  type: 'daemonset'
+  type: 'deployment'
 
   # -- Number of pods to deploy. Ignored when controller.type is 'daemonset'.
   replicas: 1
@@ -701,3 +701,13 @@ ingress:
   #         name: use-annotation
 
   tls: []
+
+crds:
+  enabled: true
+
+kube-state-metrics:
+  enabled: true
+  prometheusScrape: false
+  prometheus:
+    monitor:
+      enabled: true
